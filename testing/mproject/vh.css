@@ -1,0 +1,155 @@
+* {
+    font-family: serif;
+    margin: 0;
+    padding: 0;
+}
+.form_details{
+    display: flex;
+    flex-wrap: wrap;
+    background-image: linear-gradient(rgba(88, 88, 88, 0.46), rgba(21, 21, 21, 0.47)), url(img/file-20190515-60532-1lo0hf3.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.Imform_text {
+    flex-basis: 50%;
+}
+
+.icon i{
+    font-size: 50px;
+    z-index: 5;
+    display: block;
+    color: #fff;
+}
+.icon{
+    
+}
+
+.form {
+    flex-basis: 50%;
+    background-color: rgba(0, 0, 0, 0.61);
+    width: 590px;
+    height: 580px;
+    /*background: #000;*/
+    color: #fff;
+    border-radius: 10px;
+    margin-left: -10px;
+    margin: 3% 0;
+}
+.form input{
+    width: 65%;
+    margin-bottom: 20px;
+}
+.form input[type="text"],form input[type="number"],form input[type="time"]{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background-color: #bfbfbf;
+    outline: none;
+    height: 40px;
+    color: #000000;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 10px;
+} 
+#btnInsert
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 65%;
+    background: #1751be;
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+#btnInsert:hover{
+    background: #2aa24f;
+}
+
+.form p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.Imform_text h1{
+    /*position: absolute;*/
+    margin: 25% 10%;
+    text-align: center;
+    font-size: 55px;
+    color: #fff;
+}
+
+#myadmin {
+    animation-name: myanim;
+    animation-duration: 3s;
+    position: relative;
+}
+
+@keyframes myanim{
+    0%{
+        margin-top: -50%;
+    }
+    100%{
+        margin-top:25%; 
+    }
+}
+fieldset legend{
+    font-size: 40px;
+    margin-top: 3%;
+}
+
+.now {
+    margin:5% 3% 2%;
+    background-color: rgba(39, 70, 37, 0.67);
+    padding: 1% 3%;
+}
+
+.now h3{
+    text-transform: uppercase;
+    
+}
+
+.now h4{
+    margin-top: 2%;
+    color: #ffffff;
+}
+
+
+
+
+
+@media only screen and (max-width: 770px){
+
+    .Imform_text {
+        flex-basis: 100%;
+        height: 100vh;
+    }
+    .Imform_text h1{
+        margin: 40% 10%; 
+    }
+    .form {
+        flex-basis: 100%;
+        margin-left: 0px;
+    }
+    .form_details{
+        height: 200vh;
+    }
+    @keyframes myanim{
+        0%{
+            margin-top: -100%;
+        }
+        100%{
+            margin-top: 40%; 
+        }
+    }
+}
+
+

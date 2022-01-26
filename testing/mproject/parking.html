@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Car Parking</title>
+    <link rel="stylesheet" href="vh.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <section class="form_details">
+       <div class="Imform_text">
+           <h1 id="myadmin">Enter details<br>of your<br> Vehicle<br>For your safety</h1>
+       </div>
+        <div class="form" align="center">
+            <div class="icon">
+                <i class="bi bi-stoplights"></i>
+            </div>
+            <div class="fdetails">
+                <form>
+                    <p>Owner's Name</p>
+                    <input id="inpValue" type="text" placeholder="Enter Name">
+                    <p>Vehicle Name</p>
+                    <input id="inpValue2" type="text" placeholder="Enter Vehicle name">
+                    <p>Vehicle Number</p>
+                    <input id="inpValue3" type="number" placeholder="Enter the number">
+                    <p>Entry Time</p>
+                    <input id="inpValue4" type="time">
+                    <p>Exit time</p>
+                    <input id="inpValue5" type="time"><br>
+                    <!--<input id="btnInsert" type="submit" name="" value="Submit"> -->
+                    <button type="button" id="btnInsert">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="showcase">
+        <div class="cus_details">
+            <fieldset>
+                <legend align="center">CUSTOMER DETAILS</legend>
+                <div class="now">
+                    <h3 id="customerNO"></h3>
+                    <h4 id="IsOutput"></h4>
+                </div>
+            </fieldset>
+        </div>
+    </section>
+</body>
+
+    <script type="text/javascript">
+        const Name = document.getElementById("inpValue");
+        const Vname = document.getElementById("inpValue2");
+        const Vnumber = document.getElementById("inpValue3");
+        const Entrytime = document.getElementById("inpValue4");
+        const Exittime = document.getElementById("inpValue5");
+        const btnInsert = document.getElementById("btnInsert");
+        const IsOutput = document.getElementById("IsOutput");
+        
+        let a=1;
+        
+        btnInsert.onclick = function() {
+            const value = Name.value;
+            const value2 = Vname.value;
+            const value3 = Vnumber.value;
+            const value4 = Entrytime.value;
+            const value5 = Exittime.value;
+            
+            let myobj = {
+                name: value,
+                vname: value2,
+                vnumber: value3,
+                entime: value4,
+                extime: value5
+            };
+            
+            //console.log(myobj);
+            let myObj_serialized = JSON.stringify(myobj);
+            localStorage.setItem("myobj", myObj_serialized);
+
+            let myobj_deserialized = JSON.parse(localStorage.getItem("myobj"));
+        
+            //console.log(myobj_deserialized);
+            
+            for(let i =0;i <localStorage.length-5;i++)
+            {
+                const key = localStorage.key(i);
+                //console.log(key);
+                const value = localStorage.getItem(key);
+                //console.log(value);
+                /*customerNO.innerHTML +=`Customer Number ${a++}<br>`;*/
+                IsOutput.innerHTML += `Customer Number ${a++}<br><br>Name: ${myobj_deserialized.name} <br> Vehicle Name: ${myobj_deserialized.vname}<br> Vehicle Number : ${myobj_deserialized.vnumber}<br> Entry Time : ${myobj_deserialized.entime} <br> Exit time : ${myobj_deserialized.extime} <br><br>`;
+            }
+            document.getElementById('inpValue').value = '';
+            document.getElementById('inpValue2').value = '';
+            document.getElementById('inpValue3').value = '';
+            document.getElementById('inpValue4').value = '';
+            document.getElementById('inpValue5').value = '';
+
+            //console.log(myobj_deserialized.name);
+        };
+    </script>
+</html>
