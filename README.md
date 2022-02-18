@@ -1,1 +1,1 @@
-# Hand_detection
+# HandDetection
